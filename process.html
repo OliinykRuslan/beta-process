@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betaselect</title>
+    <link href="./resources/output.css" rel="stylesheet">
+</head>
+
+<body class="font-inter text-gray-900 bg-white dark:text-dark-100 dark:bg-dark-theme" x-data="{ showBar: false }">
+    <!-- Site header -->
+    <header
+        :class="{ 'border-b border-gray-300 dark:border-gray-60 shadow' : showBar }"
+        class="w-full z-20 sticky top-0 bg-white dark:bg-dark-theme after:absolute after:w-40 after:h-0.5"
+        @scroll.window="showBar = (window.pageYOffset > 20) ? true : false"
+    >
+        <div x-data="{showMenu : false}" class="max-w-screen-2xl mx-auto px-4 xl:px-6">
+            <div class="flex items-center justify-between py-4">
+                <!-- Brand-->
+                <a href="/" class="block md:mr-2 lg:mr-3 xl:mr-12 shrink-0">
+                    <svg class="lg:max-w-[155px] xl:max-w-full fill-blue-1000 dark:fill-white" width="170px" height="24"><use xlink:href='#logo'/></svg>
+                </a>
+                <!-- Navigation -->
+                <nav class="grow hidden flex-col space-y-4 lg:space-y-0 lg:flex-row lg:flex"
+                    :class="{ 'flex absolute top-16 left-0 bg-white border-b border-gray-300 dark:border-gray-60 dark:bg-dark-theme lg:dark:bg-transparent w-full py-8 z-20 lg:relative lg:top-0 lg:py-0 lg:mt-0 lg:border-0': showMenu, 'hidden': !showMenu}"
+                    id="navbar-main" x-cloak
+                >
+                    <ul class="flex justify-start items-start px-4 grow origin-top z-10 flex-col space-y-4 lg:px-0 lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-center xl:space-x-7">
+                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium">
+                            <div
+                                x-data="{ open: false }"
+                                class="relative"
+                            >
+                                <button
+                                    x-on:click="open = true"
+                                    class="flex items-center hover:text-black focus:text-black dark:hover:text-white dark:focus:text-white transition-all"
+                                    type="button"
+                                >
+                                    <span class="mr-1">Vacancies</span>
+                                    <svg class="fill-current h-4 w-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                    </svg>
+                                </button>
+                                <ul
+                                    x-show="open"
+                                    x-on:click.away="open = false"
+                                    class="border-t sm:border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 sm:rounded shadow-lg left-0 top-full py-2 mt-1 z-20 lg:absolute"
+                                    style="min-width:15rem"
+                                >
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            Vacancies 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            Vacancies 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            Vacancies 3
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="text-sm text-gray-500 dark:text-white lg:dark:text-dark-100 font-medium">
+                            <div
+                                x-data="{ open: false }"
+                                class="relative"
+                            >
+                                <button
+                                    x-on:click="open = true"
+                                    class="flex items-center hover:text-black focus:text-black dark:hover:text-white dark:focus:text-white transition-all"
+                                    type="button"
+                                >
+                                    <span class="mr-1">How we work</span>
+                                    <svg class="fill-current h-4 w-4 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                    </svg>
+                                </button>
+                                <ul
+                                    x-show="open"
+                                    x-on:click.away="open = false"
+                                    class="border-t sm:border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 sm:rounded shadow-lg left-0 top-full py-2 mt-1 z-20 lg:absolute"
+                                    style="min-width:15rem"
+                                >
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            How we work
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            How we work
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4">
+                                            How we work <span class="text-gray-400">(work)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                                About Betaselect
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-sm text-gray-500 font-medium dark:text-white lg:dark:text-dark-100 focus:outline-none hover:text-black dark:hover:text-white dark:focus:text-white transition-all">
+                                Contact us
+                            </a>
+                        </li>
+                        <li class="w-full pt-24 lg:pt-0 lg:w-auto">
+                            <a href="#" class="flex items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 lg:py-1.5 rounded-md hover:bg-violet-900 transition-all lg:hidden">
+                                Betaselect portal
+                                <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="flex items-center space-x-4 lg:space-x-2">
+                    <div class="text-sm text-gray-500 font-medium items-center hidden sm:flex xl:mr-10">
+                        <div
+                            x-data="{ open: false }"
+                            class="relative"
+                        >
+                            <button
+                                x-on:click="open = true"
+                                class="flex items-center mx-auto px-2 py-1.5 rounded-md hover:bg-gray-80 dark:text-white hover:dark:bg-neutral-700 lg:dark:text-dark-100 dark:hover:text-white dark:focus:text-white group transition-all"
+                                type="button"
+                            >
+                                <svg class="fill-gray-500 dark:fill-white lg:dark:fill-dark-100 dark:group-hover:fill-white transition-all" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.08296 7H4.02863C4.11783 5.45361 4.41228 4.02907 4.86644 2.88228C3.41752 3.77135 2.37513 5.25848 2.08296 7ZM8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM8 2C7.92395 2 7.76787 2.03173 7.5347 2.26184C7.29723 2.4962 7.03751 2.8849 6.79782 3.44417C6.40914 4.3511 6.12491 5.58559 6.03237 7H9.96763C9.87509 5.58559 9.59086 4.3511 9.20218 3.44417C8.96249 2.8849 8.70277 2.4962 8.4653 2.26184C8.23213 2.03173 8.07605 2 8 2ZM11.9714 7C11.8822 5.45361 11.5877 4.02907 11.1336 2.88228C12.5825 3.77135 13.6249 5.25848 13.917 7H11.9714ZM9.96763 9H6.03237C6.12491 10.4144 6.40914 11.6489 6.79782 12.5558C7.03751 13.1151 7.29723 13.5038 7.5347 13.7382C7.76787 13.9683 7.92395 14 8 14C8.07605 14 8.23213 13.9683 8.4653 13.7382C8.70277 13.5038 8.96249 13.1151 9.20218 12.5558C9.59086 11.6489 9.87509 10.4144 9.96763 9ZM11.1336 13.1177C11.5877 11.9709 11.8822 10.5464 11.9714 9H13.917C13.6249 10.7415 12.5825 12.2287 11.1336 13.1177ZM4.86644 13.1177C4.41228 11.9709 4.11783 10.5464 4.02863 9H2.08296C2.37513 10.7415 3.41752 12.2287 4.86644 13.1177Z" />
+                                </svg>
+                                <span class="mx-1 hidden lg:flex">English</span>
+                                <span class="mx-1 block lg:hidden">En</span>
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </button>
+                            <ul
+                                x-show="open"
+                                x-on:click.away="open = false"
+                                class="absolute border-t border border-white bg-white text-gray-1100 dark:text-white dark:bg-dark-200 dark:border-gray-60 rounded shadow-lg top-full py-2 mt-1 z-20"
+                            >
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                        Spanish
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                        France
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block hover:bg-violet-100 dark:hover:bg-gray-60 whitespace-no-wrap py-2 px-4 lg:px-6">
+                                        Ukrainian
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" class="flex items-center justify-center w-max text-sm font-semibold px-3 py-1.5 rounded-md transition-all text-white bg-violet-600 hover:bg-violet-900 lg:text-violet-600 lg:bg-violet-100 lg:hover:bg-violet-200 lg:dark:text-white lg:dark:bg-neutral-600 lg:hover:dark:bg-neutral-700">
+                        <span class="pr-1 hidden md:block">For </span>Business
+                    </a>
+                    <a href="#" class="hidden whitespace-nowrap items-center justify-center text-sm font-semibold text-white bg-violet-600 px-3 py-1.5 rounded-md hover:bg-violet-900 transition-all lg:flex">
+                        Betaselect portal
+                        <svg class="w-3.5 h-3.5 ml-1 xl:ml-3.5"><use xlink:href='#link-ico'/></svg>
+                    </a>
+                    <!-- Navbar Toggle Button -->
+                    <button @click="showMenu = !showMenu" class="block lg:hidden z-20" type="button" aria-controls="navbar-main" aria-expanded="false" aria-label="Toggle navigation">
+                        <svg  x-show="!showMenu" class="fill-gray-500 dark:fill-white" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 2.20001C0.800049 1.31635 1.51639 0.600006 2.40005 0.600006H21.6C22.4837 0.600006 23.2001 1.31635 23.2001 2.20001C23.2001 3.08366 22.4837 3.80001 21.6 3.80001H2.40005C1.51639 3.80001 0.800049 3.08366 0.800049 2.20001Z"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.800049 11.8C0.800049 10.9163 1.51639 10.2 2.40005 10.2H21.6C22.4837 10.2 23.2001 10.9163 23.2001 11.8C23.2001 12.6837 22.4837 13.4 21.6 13.4H2.40005C1.51639 13.4 0.800049 12.6837 0.800049 11.8Z"/>
+                        </svg>
+                        <svg x-show="showMenu" class="fill-gray-500 dark:fill-white" width="24" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.868532 0.868532C1.49337 0.243693 2.50643 0.243693 3.13127 0.868532L9.9999 7.73716L16.8685 0.868532C17.4934 0.243693 18.5064 0.243693 19.1313 0.868532C19.7561 1.49337 19.7561 2.50643 19.1313 3.13127L12.2626 9.9999L19.1313 16.8685C19.7561 17.4934 19.7561 18.5064 19.1313 19.1313C18.5064 19.7561 17.4934 19.7561 16.8685 19.1313L9.9999 12.2626L3.13127 19.1313C2.50643 19.7561 1.49337 19.7561 0.868532 19.1313C0.243693 18.5064 0.243693 17.4934 0.868532 16.8685L7.73716 9.9999L0.868532 3.13127C0.243693 2.50643 0.243693 1.49337 0.868532 0.868532Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div class="flex flex-col text-center py-12 sm:pt-24 sm:pb-12">
+                <h1 class="font-semibold leading-tight text-3xl mb-2 dark:text-white mt-2 sm:mt-3 sm:mb-4 sm:text-5xl lg:mt-0 lg:leading-snug lg:mb-1.5">Our recruitment process</h1>
+                <p class="text-base text-gray-500 dark:text-dark-100 max-w-xl px-1 mx-auto mb-8">Also some additional text here about our values or some brief message for our newcomers</p>
+                <div class="flex justify-center space-x-3 mx-auto">
+                    <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all" href="#">
+                        Show open vacancies
+                    </a>
+                    <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-violet-600 bg-violet-100 px-4 py-2.5 rounded-lg hover:bg-violet-200 dark:text-white dark:bg-neutral-600 hover:dark:bg-neutral-700 transition-all" href="#">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative mb-16" x-data="scrollProgress()" x-init="init()">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div class="relative flex flex-wrap overflow-hidden md:gap-y-4">
+
+                <!-- <div x-data="scrollProgress()" x-init="init()" x-cloak class="fixed">
+                    <span class="absolute text-xl text-blue-700" x-text="`${percent}%`"></span>
+                </div> -->
+
+                <!-- progressline -->
+                <div x-data="scrollProgress()" x-init="init()" x-cloak class="absolute h-full bg-gray-95 dark:bg-gray-60 w-0.5 md:top-20 left-5 md:left-0 md:right-0 md:mx-auto">
+                    <div class="absolute bg-violet-600 dark:bg-violet-550 top-64 sm:top-72 md:top-0 w-0.5" :style="`height: ${percent}%`"></div>
+                </div>
+
+                <!-- 1 -->
+                <div class="relative overflow-hidden flex flex-wrap justify-between w-full md:pl-0 md:pb-6" id="getting-know">
+                    <div class="w-full z-10 bg-white dark:bg-dark-theme md:dark:bg-transparent md:bg-transparent pl-12 pb-4 md:pb-0 sm:pl-16 md:pl-0 md:pr-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                    <div class="flex w-full pb-4 md:pb-0 md:mt-8 md:pl-12 md:w-1/2 xl:px-4">
+                        <span class="md:absolute top-8 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base font-semibold text-white bg-violet-600 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">1</span>
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl md: lg:leading-snug">Getting to know you</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    We want to know everything about you.
+                                    To accomplish this we schedule a online video chat or a meeting at one of our offices, what ever you prefer.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="relative flex flex-wrap justify-between flex-col-reverse w-full md:flex-row md:pb-8" id="before-meeting">
+                    <div class="flex flex-row-reverse w-full py-4 md:py-0 md:pr-12 md:w-1/2 xl:px-4">
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 mr-auto md:max-w-md md:ml-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Before the meeting</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    To have a productive meeting we need some extra information. It shouldn’t take more then 10 minutes. 
+                                    We need this information to make a seamless match between you and our partner companies. We will be needing information about your salary wish, ideal jobs. Furthermore you can make a small test which will help us validating your personality traits and learning ability.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 2 -->
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 9}" 
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 opacity-100 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            2
+                        </span>
+                    </div>
+                    <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="relative flex flex-wrap justify-between flex-col w-full md:flex-row md:pb-8" id="meeting-time">
+                    <div class="w-full z-10 pl-12 sm:pl-16 md:pl-0 md:pr-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                    <div class="flex w-full py-4 md:py-0  md:pl-12 md:w-1/2 xl:px-4">
+                        <!-- 3 -->
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 24}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 opacity-100 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            3
+                        </span>
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Meeting time</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    This the moment to shine: tell us about what you want in your new job. We will discuss the outcomes of all the information you gave to us before the meeting.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="relative flex flex-wrap justify-between flex-col-reverse w-full md:flex-row md:pb-8" id="partner-introductions">
+                    <div class="flex flex-row-reverse w-full py-4 md:py-0 md:pr-12 md:w-1/2 xl:px-4">
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 max-w-md mr-auto md:ml-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Partner introductions</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    During the meeting we will discuss all the possible job options at our partner companies. You are always in charge where you want to be introduced. Betaselect does nothing without your permission. You can have real time insight in the recruitment process in your online portal
+                                </p>
+                            </div>
+                        </div>
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 38}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme">
+                            4
+                        </span>
+                    </div>
+                    <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="relative flex flex-wrap justify-between flex-col w-full md:flex-row md:pb-8" id="job-interviews">
+                    <div class="w-full z-10 pl-12 sm:pl-16 md:pl-0 md:pr-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                    <div class="flex w-full py-4 md:py-0 md:pl-12 md:w-1/2 xl:px-4">
+                        <span
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 53}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            5
+                        </span>
+
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Job interviews</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    When the partner company is just as enthusiastic about the match as you and we are you will be invited for a job interview. This could be online or at the company location. We are here to help you during the process. We will always schedule a interview prep in which we tell you everything we know about the partner company, interview panel and the recruitment process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="relative flex flex-wrap justify-between flex-col-reverse w-full md:flex-row md:pb-8" id="job-offer">
+                    <div class="flex flex-row-reverse w-full py-4 md:py-0 md:pr-12 md:w-1/2 xl:px-4">
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 max-w-md mr-auto md:ml-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Job offer</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    If the interviews are positive, you will receive one or more job offers, congratulations! See us as your sidekick, we can negotiate on your behalf.
+                                </p>
+                            </div>
+                        </div>
+                        <span 
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 68}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            6
+                        </span>
+                    </div>
+                    <div class="w-full pl-12 sm:pl-16 md:pl-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="relative flex flex-wrap justify-between w-full md:bg-white md:dark:bg-dark-theme" id="working-betaselect">
+                    <div class="relative overflow-hidden w-full pl-12 sm:pl-16 after:absolute after:w-0.5 after:h-full after:bg-gray-95 after:dark:bg-gray-60 after:left-5 after:top-0 after:z-0 after:hidden md:pl-0 md:pr-6 md:w-1/2">
+                        <img src="./images/hero-illustration.svg" width="339" height="242.35" alt="" class="max-w-full mx-auto sm:mx-0 lg:mx-auto">
+                    </div>
+                    <div class="flex w-full py-4 md:py-0 overflow-hidden bg-white dark:bg-dark-theme md:pl-12 md:w-1/2 xl:px-4">
+                        <span
+                            :class="{'text-white bg-violet-600 dark:bg-violet-600': `${percent}` > 82}"
+                            class="md:absolute top-0 left-0 right-0 md:mx-auto w-10 h-10 z-10 p-4 flex items-center justify-center text-base text-gray-500 dark:text-white font-semibold bg-gray-95 dark:bg-neutral-700 rounded-full ring-offset-2 ring-8 ring-white dark:ring-offset-dark-theme dark:ring-dark-theme"
+                        >
+                            7
+                        </span>
+                        <div class="flex flex-col space-y-4 w-full ml-2 sm:ml-5 md:max-w-md md:ml-auto md:mr-0">
+                            <h2 class="font-semibold leading-tight text-xl text-gray-1000 dark:text-white md:text-3xl lg:leading-snug">Working at Betaselect</h2>
+                            <div class="text-sm text-gray-500 dark:text-dark-100 space-y-6 md:text-base">
+                                <p>
+                                    During the secondment we are your employer, we are there to help you find your way in the company and support you. We schedule regular meetings during   the secondment between you and Betaselect. 
+                                    Near the end of the secondment we reach out the you regarding the transition to the partnercompany.
+                                </p>
+                                <div class="flex space-x-3 -ml-10 sm:ml-0">
+                                    <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-white bg-violet-600 px-3 py-2.5 rounded-lg hover:bg-violet-900 transition-all" href="#">
+                                        Show open vacancies
+                                    </a>
+                                    <a class="flex items-center justify-center w-max whitespace-nowrap text-sm font-semibold text-violet-600 bg-violet-100 px-4 py-2.5 rounded-lg hover:bg-violet-200 dark:text-white dark:bg-neutral-600 hover:dark:bg-neutral-700 transition-all" href="#">Contact us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white dark:bg-dark-theme dark:text-white pb-4 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+            <div class="flex flex-wrap border-t border-gray-300 dark:border-gray-60 py-6 space-y-8 sm:space-y-0 lg:py-10 lg:flex-nowrap lg:gap-x-16">
+                <div class="flex justify-between items-center w-full sm:mb-8 lg:mb-0 lg:flex-col lg:justify-start lg:items-start lg:w-52">
+                    <!-- Logo -->
+                    <div>
+                        <a href="/" class="block mb-5 lg:mb-6">
+                            <svg class="fill-blue-1000 dark:fill-white" width="170px" height="24"><use xlink:href='#logo'/></svg>
+                        </a>
+                        <p class="text-sm text-gray-500 dark:text-dark-100 lg:mb-6">We connect betasto technical organizations.</p>
+                    </div>
+                    <a href="/" class="rounded-full flex justify-center items-center w-10 h-10 bg-sky-100 hover:bg-sky-200 dark:bg-[#0274B3] dark:hover:bg-sky-700 transition ease-in-out">
+                        <svg class="fill-blue-50 dark:fill-white" width="40" height="40"><use xlink:href='#linkedin-ico'/></svg>
+                    </a>
+                </div>
+                <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
+                    <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Candidates</li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Vacancies</li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Articles</a></li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Contuct us</a></li>
+                </ul>
+                <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
+                    <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">For businesses</li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Menu item 1</a></li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Menu item 2</a></li>
+                </ul>
+                <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
+                    <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Betaselect</li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">About Betaselect</a></li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">How we work</a></li>
+                </ul>
+                <ul class="text-sm font-medium space-y-4 w-1/2 sm:w-1/4 lg:w-auto">
+                    <li class="text-xs font-semibold text-gray-500 dark:text-dark-100 uppercase mb-6">Legal</li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-violet-550 transition-all">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <p class="text-center text-xs text-gray-400 dark:text-dark-100">© 2020 Betaselect B.V.  Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <!-- svg sprite -->
+    <div class="main_svg" hidden>
+        <svg>
+            <defs>
+                <!-- logo -->
+                <symbol class="fill-inherit" id="logo" viewBox="0 0 170 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.8524 16.0416H26.1107C26.1767 17.3836 26.7048 18.3823 27.6621 19.1001C28.6194 19.8179 30.0388 20.1612 31.8874 20.1612C33.0757 20.1612 34.198 19.9428 35.3204 19.5371C36.4427 19.1313 37.301 18.6944 37.9281 18.1951H38.5553V22.5644C37.301 23.0637 36.1126 23.407 34.9903 23.6255C33.8679 23.844 32.6466 23.9688 31.2932 23.9688C27.7942 23.9688 25.1204 23.1886 23.2718 21.6593C21.4233 20.13 20.466 17.9766 20.466 15.1365C20.466 12.3277 21.3573 10.1118 23.1068 8.48895C24.8563 6.83485 27.266 6.02341 30.3359 6.02341C33.1747 6.02341 35.2874 6.71001 36.7068 8.11443C38.1262 9.51886 38.8524 11.5163 38.8524 14.1378V16.0416ZM33.3068 12.8583C33.2738 11.7035 32.9767 10.8609 32.4485 10.2991C31.8874 9.73732 31.0621 9.42523 29.9068 9.42523C28.8175 9.42523 27.9592 9.70611 27.266 10.2367C26.5728 10.7672 26.1767 11.6411 26.1107 12.8583H33.3068Z" />
+                    <path d="M52.6175 23.3758C52.0233 23.5319 51.3961 23.6567 50.7029 23.7191C50.0097 23.7815 49.2175 23.844 48.2272 23.844C46.0486 23.844 44.4311 23.407 43.3748 22.5644C42.3185 21.7217 41.7903 20.2549 41.7903 18.1638V10.2367H39.5126V6.55396H41.7903V1.6853H47.3689V6.55396H52.5845V10.2367H47.3689V16.2601C47.3689 16.8531 47.3689 17.3836 47.3689 17.8205C47.3689 18.2575 47.468 18.6632 47.633 19.0065C47.7651 19.3498 48.0291 19.6307 48.3922 19.8491C48.7554 20.0676 49.2835 20.1612 49.9767 20.1612C50.2738 20.1612 50.6369 20.0988 51.099 19.974C51.5612 19.8492 51.8913 19.7555 52.0893 19.6307H52.5515V23.3758H52.6175Z" />
+                    <path d="M65.1612 21.7217C64.8641 21.9402 64.501 22.2211 64.0388 22.5332C63.5767 22.8453 63.1806 23.0949 62.7845 23.2822C62.2233 23.5319 61.6621 23.6879 61.068 23.8128C60.4738 23.9376 59.8466 24 59.1204 24C57.4699 24 56.0835 23.5007 54.9612 22.502C53.8388 21.5033 53.2777 20.2237 53.2777 18.6632C53.2777 17.4148 53.5748 16.4161 54.1359 15.6359C54.6971 14.8557 55.5223 14.2315 56.5456 13.7633C57.5689 13.2952 58.8563 12.9831 60.3748 12.7958C61.8932 12.6086 63.4777 12.4525 65.1282 12.3589V12.2653C65.1282 11.329 64.732 10.6736 63.9398 10.3303C63.1476 9.98701 61.9922 9.79975 60.4738 9.79975C59.5495 9.79975 58.5922 9.9558 57.5359 10.2679C56.4796 10.58 55.7534 10.8297 55.2913 11.0169H54.7631V6.89728C55.3573 6.74123 56.3146 6.55398 57.635 6.36672C58.9554 6.14825 60.2757 6.05463 61.6291 6.05463C64.7981 6.05463 67.0757 6.52277 68.4952 7.49026C69.9146 8.45775 70.6078 9.92459 70.6078 11.9844V23.5319H65.0621V21.7217H65.1612ZM65.1612 19.1001V15.5735C64.402 15.6359 63.6097 15.7295 62.7185 15.8232C61.8272 15.9168 61.167 16.0416 60.7049 16.1977C60.1437 16.3537 59.7146 16.6034 59.4175 16.9467C59.1204 17.29 58.9884 17.6957 58.9884 18.2263C58.9884 18.5696 59.0214 18.8505 59.0874 19.1001C59.1534 19.3186 59.3185 19.5371 59.5495 19.7243C59.7806 19.9116 60.0777 20.0676 60.4078 20.1613C60.7379 20.2549 61.266 20.3173 61.9592 20.3173C62.5204 20.3173 63.0816 20.1925 63.6427 19.974C64.2369 19.7555 64.732 19.4434 65.1612 19.1001Z" />
+                    <path d="M89.6214 18.1638C89.6214 19.9116 88.8291 21.3472 87.2117 22.4083C85.5942 23.4694 83.3825 24.0312 80.6097 24.0312C79.0583 24.0312 77.6719 23.8752 76.3845 23.5943C75.1301 23.3134 74.1068 23.0013 73.3476 22.658V18.1638H73.8757C74.1398 18.3511 74.4699 18.5696 74.833 18.788C75.1961 19.0065 75.7243 19.2562 76.3845 19.5371C76.9786 19.7555 77.6058 19.974 78.3651 20.13C79.0913 20.2861 79.8835 20.3797 80.7087 20.3797C81.7981 20.3797 82.6233 20.2549 83.1515 20.0364C83.6796 19.7867 83.9437 19.4434 83.9437 18.9753C83.9437 18.5696 83.7786 18.2575 83.4816 18.0702C83.1845 17.883 82.5903 17.6957 81.732 17.5397C81.3359 17.446 80.7748 17.3524 80.0486 17.2588C79.3553 17.1651 78.6952 17.0091 78.134 16.8843C76.5495 16.4785 75.3942 15.8544 74.635 15.0117C73.8757 14.1691 73.4796 13.1079 73.4796 11.8283C73.4796 10.2055 74.2719 8.83225 75.8563 7.73992C77.4408 6.64759 79.6194 6.11703 82.3592 6.11703C83.6466 6.11703 84.901 6.24187 86.0893 6.49155C87.2777 6.74122 88.2019 7.02211 88.8952 7.30299V11.6099H88.4C87.5748 11.0481 86.6175 10.6112 85.5612 10.2679C84.5049 9.92458 83.4486 9.73732 82.3592 9.73732C81.468 9.73732 80.7087 9.86216 80.0816 10.1118C79.4544 10.3615 79.1573 10.7048 79.1573 11.1417C79.1573 11.5475 79.2893 11.8596 79.5864 12.078C79.8505 12.2965 80.5107 12.515 81.567 12.7022C82.1282 12.827 82.7553 12.9207 83.4155 13.0143C84.0757 13.1079 84.7359 13.264 85.3961 13.42C86.8486 13.7945 87.9379 14.3875 88.6641 15.1678C89.3903 15.948 89.6214 16.9467 89.6214 18.1638Z" />
+                    <path d="M109.163 16.0416H96.3884C96.4544 17.3836 96.9825 18.3823 97.9398 19.1001C98.8971 19.8179 100.317 20.1612 102.165 20.1612C103.353 20.1612 104.476 19.9428 105.598 19.5371C106.72 19.1313 107.579 18.6944 108.206 18.195H108.833V22.5644C107.579 23.0637 106.39 23.407 105.268 23.6255C104.146 23.8439 102.924 23.9688 101.571 23.9688C98.0719 23.9688 95.3981 23.1885 93.5495 21.6593C91.701 20.13 90.7767 17.9454 90.7767 15.1053C90.7767 12.2965 91.668 10.0806 93.4175 8.45773C95.167 6.80363 97.5767 5.99219 100.647 5.99219C103.485 5.99219 105.598 6.67879 107.017 8.08321C108.437 9.48764 109.163 11.485 109.163 14.1066V16.0416ZM103.617 12.8582C103.584 11.7035 103.287 10.8608 102.759 10.2991C102.198 9.73731 101.373 9.42522 100.217 9.42522C99.1282 9.42522 98.2699 9.7061 97.5767 10.2367C96.8835 10.7672 96.4874 11.6411 96.4214 12.8582H103.617Z" />
+                    <path d="M117.383 23.5319H111.804V0H117.383V23.5319Z" />
+                    <path d="M138.476 16.0416H125.701C125.767 17.3836 126.295 18.3823 127.252 19.1001C128.21 19.8179 129.629 20.1612 131.478 20.1612C132.666 20.1612 133.788 19.9428 134.911 19.5371C136.033 19.1313 136.891 18.6944 137.518 18.195H138.146V22.5644C136.891 23.0637 135.703 23.407 134.581 23.6255C133.458 23.8439 132.237 23.9688 130.883 23.9688C127.384 23.9688 124.711 23.1885 122.862 21.6593C121.014 20.13 120.089 17.9454 120.089 15.1053C120.089 12.2965 120.981 10.0806 122.73 8.45773C124.48 6.80363 126.889 5.99219 129.959 5.99219C132.798 5.99219 134.911 6.67879 136.33 8.08321C137.75 9.48764 138.476 11.485 138.476 14.1066V16.0416ZM132.93 12.8582C132.897 11.7035 132.6 10.8608 132.072 10.2991C131.511 9.73731 130.685 9.42522 129.53 9.42522C128.441 9.42522 127.583 9.7061 126.889 10.2367C126.196 10.7672 125.8 11.6411 125.734 12.8582H132.93Z" />
+                    <path d="M150.161 24C148.643 24 147.256 23.8127 146.002 23.4694C144.748 23.1261 143.658 22.5644 142.734 21.8466C141.81 21.0975 141.117 20.1925 140.588 19.0689C140.093 17.9454 139.829 16.6346 139.829 15.1365C139.829 13.5449 140.093 12.1717 140.654 11.0481C141.183 9.89337 141.942 8.95709 142.932 8.17685C143.856 7.45904 144.946 6.92848 146.2 6.61638C147.421 6.27308 148.709 6.11703 150.029 6.11703C151.217 6.11703 152.307 6.24187 153.297 6.49155C154.287 6.74122 155.245 7.08452 156.103 7.49025V12.1404H155.311C155.08 11.9532 154.849 11.7347 154.518 11.5163C154.221 11.2666 153.858 11.0481 153.396 10.7984C152.967 10.58 152.505 10.3927 152.01 10.2367C151.515 10.0806 150.92 10.0182 150.26 10.0182C148.775 10.0182 147.619 10.4863 146.827 11.3914C146.035 12.3277 145.639 13.5761 145.639 15.1365C145.639 16.7594 146.035 18.0078 146.86 18.8505C147.685 19.6931 148.841 20.13 150.359 20.13C151.052 20.13 151.68 20.0364 152.241 19.8804C152.802 19.7243 153.264 19.5371 153.627 19.3186C153.99 19.1313 154.287 18.9129 154.551 18.6944C154.816 18.4759 155.08 18.2575 155.278 18.039H156.07V22.6892C155.179 23.0949 154.287 23.407 153.33 23.6567C152.373 23.8752 151.317 24 150.161 24Z" />
+                    <path d="M170 23.3758C169.406 23.5319 168.779 23.6567 168.085 23.7191C167.392 23.7815 166.6 23.844 165.61 23.844C163.431 23.844 161.814 23.407 160.757 22.5644C159.701 21.7217 159.173 20.2549 159.173 18.1638V10.2367H156.895V6.55396H159.173V1.6853H164.751V6.55396H170V10.2367H164.784V16.2601C164.784 16.8531 164.784 17.3836 164.784 17.8205C164.784 18.2575 164.883 18.6632 165.049 19.0065C165.181 19.3498 165.445 19.6307 165.808 19.8491C166.171 20.0676 166.699 20.1612 167.392 20.1612C167.689 20.1612 168.052 20.0988 168.515 19.974C168.977 19.8492 169.307 19.7555 169.505 19.6307H169.967V23.3758H170Z" />
+                    <path d="M5.57864 19.5371V14.0754V10.3303V5.71131V1.6853H0V23.5319H5.57864V19.5371Z" />
+                    <path d="M17.2641 11.1417C16.6039 9.89336 15.6136 8.64498 14.3262 7.49024L13.8641 7.11572H8.1534V8.92587L8.64855 9.23796C9.11068 9.55005 9.53981 9.89336 9.93593 10.2991C10.332 10.6736 10.7282 11.1417 11.0583 11.6723C11.3884 12.1716 11.6524 12.7334 11.8835 13.3576C12.0816 13.9818 12.1806 14.6372 12.1806 15.3238C12.1806 16.0416 12.0816 16.697 11.8835 17.29C11.6854 17.883 11.3884 18.4447 11.0583 18.9753C10.7282 19.4746 10.3651 19.9428 9.93593 20.3485C9.5068 20.7542 9.07767 21.0975 8.61554 21.4096L8.12039 21.7529V23.5631H13.8641L14.2932 23.1885C15.6136 22.0026 16.6039 20.7854 17.2641 19.537C17.9243 18.2575 18.2544 16.853 18.2544 15.3862C18.2544 13.9194 17.9243 12.4213 17.2641 11.1417Z" />
+                </symbol>
+                <!-- link -->
+                <symbol id="link-ico" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0C7.44772 0 7 0.447715 7 1C7 1.55228 7.44772 2 8 2H10.5858L4.29289 8.29289C3.90237 8.68342 3.90237 9.31658 4.29289 9.70711C4.68342 10.0976 5.31658 10.0976 5.70711 9.70711L12 3.41421V6C12 6.55228 12.4477 7 13 7C13.5523 7 14 6.55228 14 6V1C14 0.447715 13.5523 0 13 0H8Z" fill="white"/>
+                    <path d="M2 2C0.895431 2 0 2.89543 0 4V12C0 13.1046 0.89543 14 2 14H10C11.1046 14 12 13.1046 12 12V9C12 8.44772 11.5523 8 11 8C10.4477 8 10 8.44772 10 9V12H2V4L5 4C5.55228 4 6 3.55228 6 3C6 2.44772 5.55228 2 5 2H2Z" fill="white"/>
+                </symbol>
+                <!-- in -->
+                <symbol class="fill-inherit" id="linkedin-ico" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.8333 12.5H14.1667C13.2458 12.5 12.5 13.2458 12.5 14.1667V25.8333C12.5 26.7542 13.2458 27.5 14.1667 27.5H25.8333C26.7542 27.5 27.5 26.7542 27.5 25.8333V14.1667C27.5 13.2458 26.7542 12.5 25.8333 12.5ZM17.5 24.1667H15.3975V18.3333H17.5V24.1667ZM16.4117 17.2642C15.7692 17.2642 15.34 16.8358 15.34 16.2642C15.34 15.6925 15.7683 15.2642 16.4825 15.2642C17.125 15.2642 17.5542 15.6925 17.5542 16.2642C17.5542 16.8358 17.1258 17.2642 16.4117 17.2642ZM25 24.1667H22.965V20.9783C22.965 20.0967 22.4225 19.8933 22.2192 19.8933C22.0158 19.8933 21.3375 20.0292 21.3375 20.9783C21.3375 21.1142 21.3375 24.1667 21.3375 24.1667H19.235V18.3333H21.3375V19.1475C21.6083 18.6725 22.1508 18.3333 23.1683 18.3333C24.1858 18.3333 25 19.1475 25 20.9783V24.1667Z" />
+                </symbol>
+            </defs>
+        </svg>
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        const scrollProgress = () => {
+        return {
+            init() {
+                window.addEventListener('scroll', () => {
+                    let winScroll = document.body.scrollTop || document.documentElement.scrollTop
+                    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+                    this.percent = Math.round((winScroll / height) * 100)
+                })
+            },
+            percent: 0,
+        }
+    }
+    </script>
+</body>
+</html>
